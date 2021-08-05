@@ -35,12 +35,27 @@ class Networking: API {
         
         task.resume()
     }
-}
     
-struct Album: Codable {
-    let userId: Int
-    let id: Int
-    let title: String
+    func fetchTodos() {
+        let session = URLSession(configuration: .default)
+        let url = URL(string: "\(baseURL)/todos")
+        
+        guard let url = url else {
+            return
+        }
+        
+        let task = session.dataTask(with: url) { data, _, error in
+            do {
+                let jsonDecoder = JSONDecoder()
+                let todos = try jsonDecoder.decode([Todo].self, from: data!)
+                for todo in todos {
+                    print("Id \(todo.id) \n title \(todo.title)")
+                }
+            }catch {
+                print(error)
+            }
+        }
+        
+        task.resume()
+    }
 }
-    
-
