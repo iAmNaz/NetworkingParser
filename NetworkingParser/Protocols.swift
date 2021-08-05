@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol API {
+    func fetchPosts()
+}
