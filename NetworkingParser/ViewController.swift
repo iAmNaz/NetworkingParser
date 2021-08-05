@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBAction func buttonTapped(_ sender: UIButton) {
         let network = Networking()
         network.fetchPosts()
+        network.fetchTodos()
     }
     
 }
