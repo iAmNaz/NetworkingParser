@@ -15,9 +15,14 @@ class ViewController: UIViewController {
 
     @IBAction func buttonTapped(_ sender: UIButton) {
         let network = Networking()
-        network.fetchPosts()
-        network.fetchTodos()
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.startAnimating()
+        
+        self.view.addSubview(activityIndicator)
+        
+        network.fetch(resource: "todos", model: Todo.self) { results in
+            print(results)
+        }
     }
-    
 }
 
