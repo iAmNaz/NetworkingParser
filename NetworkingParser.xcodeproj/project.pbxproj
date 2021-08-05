@@ -13,6 +13,7 @@
 		45D952B326BA5D9B0072E37B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D952B126BA5D9B0072E37B /* Main.storyboard */; };
 		45D952B526BA5D9F0072E37B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D952B426BA5D9F0072E37B /* Assets.xcassets */; };
 		45D952B826BA5D9F0072E37B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D952B626BA5D9F0072E37B /* LaunchScreen.storyboard */; };
+		5B7D0A6A26BA6C7E006B3C63 /* TodoNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D0A6926BA6C7E006B3C63 /* TodoNetworking.swift */; };
 		5B7D0A6C26BA6D2B006B3C63 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D0A6B26BA6D2B006B3C63 /* Protocols.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		45D952B426BA5D9F0072E37B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45D952B726BA5D9F0072E37B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45D952B926BA5D9F0072E37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B7D0A6926BA6C7E006B3C63 /* TodoNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoNetworking.swift; sourceTree = "<group>"; };
 		5B7D0A6B26BA6D2B006B3C63 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +67,7 @@
 				45D952B426BA5D9F0072E37B /* Assets.xcassets */,
 				45D952B626BA5D9F0072E37B /* LaunchScreen.storyboard */,
 				45D952B926BA5D9F0072E37B /* Info.plist */,
+				5B7D0A6926BA6C7E006B3C63 /* TodoNetworking.swift */,
 				5B7D0A6B26BA6D2B006B3C63 /* Protocols.swift */,
 			);
 			path = NetworkingParser;
@@ -142,6 +145,7 @@
 			files = (
 				5B7D0A6C26BA6D2B006B3C63 /* Protocols.swift in Sources */,
 				45D952B026BA5D9B0072E37B /* ViewController.swift in Sources */,
+				5B7D0A6A26BA6C7E006B3C63 /* TodoNetworking.swift in Sources */,
 				45D952AC26BA5D9B0072E37B /* AppDelegate.swift in Sources */,
 				45D952AE26BA5D9B0072E37B /* SceneDelegate.swift in Sources */,
 			);
