@@ -11,12 +11,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
-    @IBAction func onTapped(_ sender: Any) {
-        let networking = Networking()
-        networking.fetchPosts()
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        let network = Networking()
+        network.fetchPosts()
     }
     
 }

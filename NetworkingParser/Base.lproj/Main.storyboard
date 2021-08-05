@@ -16,30 +16,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UcR-qp-P9f">
-                                <rect key="frame" x="160" y="433" width="88" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RPZ-kC-ef7">
+                                <rect key="frame" x="141.5" y="424" width="131" height="48"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="EUj-Ua-4V6"/>
+                                    <constraint firstAttribute="height" constant="48" id="94m-Ru-hnT"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="131" id="D2l-qP-Nrp"/>
                                 </constraints>
-                                <state key="normal" title="TAP"/>
+                                <state key="normal" title="CLICK HERE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="onTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vYh-wa-P3M"/>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchDown" id="B4m-X8-a3k"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UcR-qp-P9f" secondAttribute="bottom" constant="399" id="OIA-tZ-QuA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UcR-qp-P9f" secondAttribute="trailing" constant="166" id="RCP-bh-oJ1"/>
-                            <constraint firstItem="UcR-qp-P9f" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="389" id="XKg-x8-7gI"/>
-                            <constraint firstItem="UcR-qp-P9f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="160" id="hmw-Ro-0ZS"/>
+                            <constraint firstItem="RPZ-kC-ef7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="u4j-rO-wgW"/>
+                            <constraint firstItem="RPZ-kC-ef7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zU5-WY-Vsj"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="77.678571428571431"/>
+            <point key="canvasLocation" x="-17.39130434782609" y="67.633928571428569"/>
         </scene>
     </scenes>
     <resources>
