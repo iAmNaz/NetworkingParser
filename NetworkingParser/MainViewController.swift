@@ -8,8 +8,10 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
     
-    let activityIndicator = UIActivityIndicatorView(style: .large)
+    private var todos: [Todo] = []
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +21,9 @@ class MainViewController: UIViewController {
         let network = Networking()
 
         network.fetch(resource: "todos", model: Todo.self) { results in
-            print("results: \(results)")
+            self.todos = results as! [Todo]
             self.activityIndicator.stopAnimating()
+            self.tableView.reloadData()
         }
     }
     
@@ -46,25 +49,34 @@ class MainViewController: UIViewController {
     }
 }
 
-extension UIViewController: UITableViewDataSource {
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+extension MainViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.todos.count
     }
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            cell.textLabel?.text = "Row \(indexPath.row)"
+
+        let todo = todos[indexPath.row]
+        cell.textLabel?.text = todo.title
         
         return cell
     }
 }
 
-extension UIViewController: UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         guard let navController = self.navigationController else {
             return
         }
-        let detailViewController = DetailViewController(nibName: "DetailView", bundle: nil)
+        
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let todo = todos[indexPath.row]
+        let detailViewController = mainStoryboard.instantiateViewController(identifier: "DetailViewController") as! DetailViewController
+        detailViewController.todo = todo
+        
         navController.pushViewController(detailViewController, animated: true)
     }
 }

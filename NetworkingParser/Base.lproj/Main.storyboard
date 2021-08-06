@@ -55,6 +55,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="rCB-Vd-chw"/>
                     <connections>
+                        <outlet property="tableView" destination="Uzn-uz-xd7" id="bS1-MA-crs"/>
                         <segue destination="jRt-CZ-P5F" kind="show" id="ekl-qC-oCn"/>
                     </connections>
                 </viewController>
@@ -65,14 +66,46 @@
         <!--Detail View Controller-->
         <scene sceneID="ceU-PM-oxM">
             <objects>
-                <viewController id="jRt-CZ-P5F" customClass="DetailViewController" customModule="NetworkingParser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="jRt-CZ-P5F" customClass="DetailViewController" customModule="NetworkingParser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="36O-7v-LFe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZ8-cv-yXa">
+                                <rect key="frame" x="20" y="108" width="374" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="aYb-zX-zVu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jb-V1-QgH">
+                                <rect key="frame" x="20" y="146" width="374" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="uij-dB-LT9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="9eG-xa-jNc"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9eG-xa-jNc" firstAttribute="trailing" secondItem="7Jb-V1-QgH" secondAttribute="trailing" constant="20" id="EoS-Fk-gdw"/>
+                            <constraint firstItem="7Jb-V1-QgH" firstAttribute="top" secondItem="sZ8-cv-yXa" secondAttribute="bottom" constant="8" symbolic="YES" id="WTY-25-EwP"/>
+                            <constraint firstItem="9eG-xa-jNc" firstAttribute="trailing" secondItem="sZ8-cv-yXa" secondAttribute="trailing" constant="20" id="ZHK-ye-N2F"/>
+                            <constraint firstItem="7Jb-V1-QgH" firstAttribute="leading" secondItem="9eG-xa-jNc" secondAttribute="leading" constant="20" id="oHU-jd-h03"/>
+                            <constraint firstItem="sZ8-cv-yXa" firstAttribute="top" secondItem="9eG-xa-jNc" secondAttribute="top" constant="20" id="q1G-0T-qF4"/>
+                            <constraint firstItem="sZ8-cv-yXa" firstAttribute="leading" secondItem="9eG-xa-jNc" secondAttribute="leading" constant="20" id="yN7-va-rMZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hpm-Wa-2dp"/>
+                    <connections>
+                        <outlet property="statusLabel" destination="7Jb-V1-QgH" id="Rns-Ic-C4w"/>
+                        <outlet property="titleLabel" destination="sZ8-cv-yXa" id="w77-h8-gXF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="diQ-Sj-s7d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
