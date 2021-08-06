@@ -10,3 +10,7 @@ import Foundation
 protocol API {
     func fetchPosts()
 }
+
+protocol DelegateProtocol {
+    func didReceive(models: [Codable])
+}

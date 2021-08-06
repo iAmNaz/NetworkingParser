@@ -7,25 +7,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
+    
     let activityIndicator = UIActivityIndicatorView(style: .large)
-    @IBOutlet weak var resultTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupActivityIndicator()
-        resultTextView.isHidden = true
         activityIndicator.startAnimating()
         
-        
         let network = Networking()
+
         network.fetch(resource: "todos", model: Todo.self) { results in
-            let todos:[Todo] = results as! [Todo]
-            self.resultTextView.isHidden = false
-            self.resultTextView.text = todos.first!.title
+            print("results: \(results)")
             self.activityIndicator.stopAnimating()
         }
     }
+    
     fileprivate func setupActivityIndicator() {
 
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -48,3 +46,25 @@ class ViewController: UIViewController {
     }
 }
 
+extension UIViewController: UITableViewDataSource {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            cell.textLabel?.text = "Row \(indexPath.row)"
+        
+        return cell
+    }
+}
+
+extension UIViewController: UITableViewDelegate {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let navController = self.navigationController else {
+            return
+        }
+        let detailViewController = DetailViewController(nibName: "DetailView", bundle: nil)
+        navController.pushViewController(detailViewController, animated: true)
+    }
+}

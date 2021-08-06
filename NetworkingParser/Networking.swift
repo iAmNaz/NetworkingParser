@@ -11,6 +11,7 @@ let baseURL = "https://jsonplaceholder.typicode.com"
 
 
 class Networking: API {
+    var delegate: DelegateProtocol?
     
     func fetch<Model: Codable>(resource: String, model: Model.Type, completionHandler: @escaping ([Codable]) -> Void) {
         
@@ -25,10 +26,11 @@ class Networking: API {
             do {
                 let jsonDecoder = JSONDecoder()
                 
-                let albums = try jsonDecoder.decode([Model].self, from: data!)
+                let models = try jsonDecoder.decode([Model].self, from: data!)
                 
-                DispatchQueue.main.async {
-                    completionHandler(albums)
+                DispatchQueue.main.async { [self] in
+                    delegate?.didReceive(models: models)
+                    completionHandler(models)
                 }
                 
             } catch {
