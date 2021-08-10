@@ -18,6 +18,8 @@ class MainViewController: UIViewController {
         setupActivityIndicator()
         activityIndicator.startAnimating()
         
+        self.navigationItem.title = "TableView"
+        
         let network = Networking()
 
         network.fetch(resource: "todos", model: Todo.self) { results in
